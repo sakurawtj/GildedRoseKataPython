@@ -11,16 +11,16 @@ class GildedRoseTest(unittest.TestCase):
         gilded_rose = GildedRose(items)
         gilded_rose.update_quality()
         sulfuras_item = items[0]
-        self.assertEquals(80, sulfuras_item.quality)
-        self.assertEquals(4, sulfuras_item.sell_in)
-        self.assertEquals("Sulfuras", sulfuras_item.name)
+        self.assertEqual(80, sulfuras_item.quality)
+        self.assertEqual(4, sulfuras_item.sell_in)
+        self.assertEqual("Sulfuras", sulfuras_item.name)
 
     # example of test that checks for syntax errors
     def test_gilded_rose_list_all_items(self):
         items = [Item("Sulfuras", 5, 80)]
         gilded_rose = GildedRose(items)
         all_items = gilded_rose.get_items()
-        self.assertEquals(["Sulfuras"], all_items)
+        self.assertEqual(["Sulfuras"], all_items)
 
     # example1 of test that checks for logical errors
     def test_Backstage_passes_quality_increase_by_2_less_10_days(self):
@@ -28,8 +28,8 @@ class GildedRoseTest(unittest.TestCase):
         gilded_rose = GildedRose(items)
         gilded_rose.update_quality()
         backstage_item = items[0]
-        self.assertEquals(27, backstage_item.quality)
-        self.assertEquals(7, backstage_item.sell_in)
+        self.assertEqual(27, backstage_item.quality)
+        self.assertEqual(7, backstage_item.sell_in)
 
     # example2 of test that checks for logical errors
     def test_Backstage_passes_quality_to_0_when_expired(self):
@@ -37,16 +37,16 @@ class GildedRoseTest(unittest.TestCase):
         gilded_rose = GildedRose(items)
         gilded_rose.update_quality()
         backstage_item = items[0]
-        self.assertEquals(0, backstage_item.quality)
+        self.assertEqual(0, backstage_item.quality)
 
     # example3 of test that checks for logical errors
     def test_Conjured_item_decrease_quality_twice(self):
         items = [Item("Conjured Regular item", 5, 22)]
         gilded_rose = GildedRose(items)
         gilded_rose.update_quality()
-        backstage_item = items[0]
-        self.assertEquals(20, backstage_item.quality)
-        self.assertEquals(4, backstage_item.sell_in)
+        conjured_item = items[0]
+        self.assertEqual(20, conjured_item.quality)
+        self.assertEqual(4, conjured_item.sell_in)
 
     # example1 of test that checks for syntax errors
     def test_remove_all_quality_0(self):
@@ -58,7 +58,7 @@ class GildedRoseTest(unittest.TestCase):
         ]
         gilded_rose = GildedRose(items)
         items = gilded_rose.remove_quality_zero()
-        self.assertEquals(len(items), 2)
+        self.assertEqual(len(items), 2)
 
     # example4 of test that checks for logical errors
     def test_Backstage_passes_quality_increase_by_3_less_5_days(self):
@@ -66,8 +66,8 @@ class GildedRoseTest(unittest.TestCase):
         gilded_rose = GildedRose(items)
         gilded_rose.update_quality()
         backstage_item = items[0]
-        self.assertEquals(33, backstage_item.quality)
-        self.assertEquals(4, backstage_item.sell_in)
+        self.assertEqual(33, backstage_item.quality)
+        self.assertEqual(4, backstage_item.sell_in)
 
 
 if __name__ == '__main__':
